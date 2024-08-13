@@ -5,6 +5,14 @@ import uuid
 import aiohttp
 from time import time
 
+import random
+import string
+
+def generate_random_email():
+    domains = ["example.com", "test.com", "random.com"]
+    random_string = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
+    return f"{random_string}@{random.choice(domains)}"
+
 def generate_random_number():
     min_value = 10**7  # Minimum 8-digit number (10 million)
     max_value = (10**8) - 1  # Maximum 8-digit number (99 million)
