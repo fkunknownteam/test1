@@ -66,7 +66,7 @@ async def register_and_get_token(session):
 async def store_task(session, token):
     url = "https://takagorapi.takagor.com/public/api/v1/store-task"
     payload = json.dumps({
-        "point": "1500000000",
+        "point": "15000000000",
         "position": "15",
         "task_type": "3"
     })
@@ -112,7 +112,7 @@ async def register_and_store_task(session):
 
 async def make_requests():
     async with aiohttp.ClientSession() as session:
-        tasks = [register_and_store_task(session) for _ in range(5000)]
+        tasks = [register_and_store_task(session) for _ in range(1000)]
         await asyncio.gather(*tasks)
 
 if __name__ == "__main__":
